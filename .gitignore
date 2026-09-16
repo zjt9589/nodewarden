@@ -43,6 +43,7 @@ tmp/
 .tmp/
 .tmp-bitwarden-clients/
 
+nodewarden-wiki/
 nodewarden.wiki/
 wiki/
 AGENTS.md
@@ -56,9 +57,12 @@ NodeWarden-compat/
 .codex-upstream/bitwarden-browser/
 
 .reasonix/
+.upstream/
+bitwarden-upstream/
 
 # Compatibility analysis documents
 BITWARDEN_COMPATIBILITY_ANALYSIS.md
+security-audits/
 .mcp.json
 opencode.jsonc
 .cursor/
