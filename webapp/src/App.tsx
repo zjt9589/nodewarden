@@ -1674,25 +1674,17 @@ export default function App() {
       reconnectAttempts += 1;
       reconnectTimer = window.setTimeout(() => {
         reconnectTimer = null;
-        void connect();
+        connect();
       }, delay);
     };
 
-    const connect = async () => {
+    const connect = () => {
       if (disposed) return;
       const accessToken = session.accessToken;
       if (!accessToken) return;
       try {
-        const negotiateResponse = await fetch('/notifications/hub/negotiate?negotiateVersion=1', {
-          method: 'POST',
-          headers: { Authorization: `Bearer ${accessToken}` },
-        });
-        if (!negotiateResponse.ok) throw new Error('Notification negotiation failed');
-        const negotiation = (await negotiateResponse.json()) as { connectionToken?: string };
-        if (!negotiation.connectionToken || disposed) throw new Error('Notification connection token missing');
-
         const hubUrl = new URL('/notifications/hub', window.location.origin);
-        hubUrl.searchParams.set('id', negotiation.connectionToken);
+        hubUrl.searchParams.set('access_token', accessToken);
         hubUrl.protocol = hubUrl.protocol === 'https:' ? 'wss:' : 'ws:';
         socket = new WebSocket(hubUrl.toString());
       } catch {
@@ -1817,7 +1809,7 @@ export default function App() {
       });
     };
 
-    void connect();
+    connect();
 
     return () => {
       disposed = true;

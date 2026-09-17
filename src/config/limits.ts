@@ -156,9 +156,7 @@
   compatibility: {
     // Single source of truth for /config.version and /api/version.
     // /config.version 与 /api/version 的统一版本号来源。
-    // Vaultwarden 1.37.0 advertises 2026.6.0 after aligning its API response
-    // with the response contract required by Bitwarden 2026.7.x clients.
-    bitwardenServerVersion: '2026.6.0',
+    bitwardenServerVersion: '2026.4.1',
     // Official 2026.4.x clients need this flag to receive and use cipher.key.
     // Hiding existing item keys makes item-key encrypted vault data unreadable.
     // 官方 2026.4.x 客户端需要该开关来接收并使用 cipher.key。

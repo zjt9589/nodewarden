@@ -17,12 +17,8 @@ export function buildAccountKeys(user: Pick<User, 'privateKey' | 'publicKey'>): 
       wrappedPrivateKey: user.privateKey,
       publicKey,
       signedPublicKey: null,
-      object: 'publicKeyEncryptionKeyPair',
       Object: 'publicKeyEncryptionKeyPair',
     },
-    securityState: null,
-    signatureKeyPair: null,
-    object: 'privateKeys',
     Object: 'privateKeys',
   };
 }
